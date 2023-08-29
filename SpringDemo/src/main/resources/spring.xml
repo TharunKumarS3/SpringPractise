@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- bean definitions here -->
+
+
+
+<!--    <bean id="doc" class="org.example.Doctor">-->
+
+<!--        <property name="doctor_name" value="THARUN"/>-->
+<!--        <constructor-arg value="22MCA0344"/>-->
+<!--    </bean>-->
+<!--    <bean id="nur" class="org.example.Nurse"/>-->
+
+
+    <!-- using annotation configuration -->
+    <context:component-scan base-package="org.example"/>
+
+
+
+
+</beans>
