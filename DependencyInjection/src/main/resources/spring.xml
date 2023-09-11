@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- we are using MathCheat object in both class so we define it as common and referring it when neeed -->
+    <bean id="ch" class="org.example.MathCheat"/>
+
+    <bean id="stu1" class="org.example.Student">
+        <property name="id" value="344"/>
+<!--        &lt;!&ndash; this is not recommended bcoz we are creating MathCheat obj everytime so waste of space &ndash;&gt;-->
+<!--        <property name="cheat" >-->
+<!--            &lt;!&ndash; we are creating MathCheat obj in property tag because in Student class wee have it as property &ndash;&gt;-->
+<!--            <bean class="org.example.MathCheat"/>-->
+<!--            &lt;!&ndash; here we are creating obj and it will automatially cal setter method &ndash;&gt;-->
+<!--        </property>-->
+
+        <!-- this is standard way to use-->
+        <property name="cheat" ref="ch"/>
+    </bean>
+
+    <bean id="stu2" class="org.example.Student2">
+        <property name="id" value="345"/>
+
+<!--        &lt;!&ndash; this is not recommended bcoz we are creating MathCheat obj everytime so waste of space &ndash;&gt;-->
+<!--        <property name="cheat1" >-->
+<!--            &lt;!&ndash; we are creating MathCheat obj in property tag because in Student class wee have it as property &ndash;&gt;-->
+<!--            <bean class="org.example.MathCheat"/>-->
+<!--            &lt;!&ndash; here we are creating obj and it will automatially cal setter method &ndash;&gt;-->
+<!--        </property>-->
+
+        <!-- this is standard way to use-->
+        <property name="cheat1" ref="ch"/>
+
+    </bean>
+
+</beans>
