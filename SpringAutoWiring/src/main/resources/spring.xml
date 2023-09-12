@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- autowiring in xml itself -->
+    <!-- we doesn't want to add parameter tag to do injection that's the concept of autowiring -->
+
+    <!-- byName autowiring .. id name of another class and parameter name should be same heart == heart in human class-->
+<!--    <bean id="heart" class="org.example.Heart"/>-->
+<!--    <bean id="human" class="org.example.Human" autowire="byName"/>-->
+
+    <!-- byType autowiring  if id not same then we can use this -->
+<!--    <bean id="heart" class="org.example.Heart"/>-->
+<!--    <bean id="human" class="org.example.Human" autowire="byType"/>-->
+
+    <!-- byConstructor autowiring  we need constructor for this in human class-->
+<!--    <bean id="heart" class="org.example.Heart"/>-->
+<!--    <bean id="human" class="org.example.Human" autowire="constructor"/>-->
+
+
+    <!-- @Autowired -->
+    <!-- first it will check byType and then byName -->
+    <context:annotation-config/>
+
+
+
+    <!-- 2 objects are created spring got confused which one to call there @Qualifer cones -->
+        <bean id="human1" class="org.example.HeartAutowired">
+        <property name="name" value="tharun"/>
+        <property name="idol" value="ronaldo"/>
+
+      </bean>
+    <bean id="human2" class="org.example.HeartAutowired">
+        <property name="name" value="vegeta"/>
+        <property name="idol" value="prince"/>
+
+    </bean>
+        <bean id="human" class="org.example.HumanAutowired">
+
+        </bean>
+
+
+</beans>
